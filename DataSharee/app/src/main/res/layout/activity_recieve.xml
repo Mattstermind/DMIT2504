@@ -4,31 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".RecieveActivity"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Main_Title_Text"
+        android:text="@string/Rec_Title_Text"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/TitleTextColor"
         android:textSize="24sp"
-         />
-    <EditText
+        />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/EditTextColor"
-        android:hint="@string/EditTextHint"
-        android:gravity="top"
-        android:id="@+id/message_box"/>
-
-    <Button
-        android:layout_height="100dp"
-        android:textSize="16sp"
-        android:text="@string/button_fullsend_text"
-        android:layout_width="wrap_content"
         android:layout_margin="20dp"
-        android:id="@+id/button_fullsend"/>
+        android:background="@color/EditTextColor"
+        android:id="@+id/text_view_receive"/>
+
 
 </LinearLayout>

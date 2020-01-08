@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DataShare</string>
+    <string name="Main_Title_Text">How neat it that?!</string>
+    <string name="Rec_Title_Text">You got a message!</string>
+    <string name="EditTextHint">Enter your message...</string>
+    <string name="button_fullsend_text">Send</string>
 </resources>
