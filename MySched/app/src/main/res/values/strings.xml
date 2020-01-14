@@ -10,5 +10,7 @@
 
     <!-- Forgot Page Strings -->
     <string name="forgotPasswordText">Forgot Password</string>
+    <string name="forgotEmployeeID">Employee ID</string>
+    <string name="forgotEmployeeIDButton">Fetch Employee ID</string>
 
 </resources>

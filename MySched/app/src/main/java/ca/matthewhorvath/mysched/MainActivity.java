@@ -14,6 +14,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private VideoView bgVideoView;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        bgVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -24,12 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bgVideoView.setVideoURI(uri);
         bgVideoView.start();
 
-        bgVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                mp.setLooping(true);
-            }
-        });
+
+
     }
 
     @Override

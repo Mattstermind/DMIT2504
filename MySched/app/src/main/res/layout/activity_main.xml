@@ -72,7 +72,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
-        android:background="@drawable/loginbutton"
+        android:background="@drawable/mainbutton"
         android:text="@string/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

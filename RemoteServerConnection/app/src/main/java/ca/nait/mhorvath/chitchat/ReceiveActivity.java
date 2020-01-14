@@ -2,7 +2,9 @@ package ca.nait.mhorvath.chitchat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,8 @@ public class ReceiveActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receive);
+
+        getFromServer();
     }
 
     public void getFromServer()
@@ -34,7 +38,7 @@ public class ReceiveActivity extends AppCompatActivity
             /* Now we create a http client this is a appache library*/
             HttpClient client = new DefaultHttpClient();
             HttpGet request = new HttpGet();
-            request.setURI(new URI("http://youcode.ca/JSONServlet"));
+            request.setURI(new URI("http://www.youcode.ca/JSONServlet"));
             //now we want to submit the request and place it somewhere
             HttpResponse response = client.execute(request);
             //now we want to pull the data from the response object then pass it through a stream
@@ -44,8 +48,10 @@ public class ReceiveActivity extends AppCompatActivity
 
             String strInput = "";
 
+            strInput = in.readLine();
+
             //Loop through our in object until each message is read
-            while((strInput = in.readLine()) != null);
+            while((strInput = in.readLine()) != null)
             {
                 textbox.append(strInput + "\n");
             }
