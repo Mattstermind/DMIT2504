@@ -1,5 +1,6 @@
 package ca.nait.mhorvath.chitchat;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,6 +8,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +49,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sendButton.setOnClickListener(this);
         viewButton.setOnClickListener(this);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+        //true  - means its been taken care of
+
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
+        switch(item.getItemId())
+        {
+            case R.id.menuItemTextViewList:
+            {
+                Intent intent = new Intent(this, ReceiveActivity.class);
+                this.startActivity(intent);
+                break;
+            }
+            case R.id.menuItemTextSystemList:
+            {
+                Intent intent = new Intent(this, SystemList.class);
+                this.startActivity(intent);
+                   break;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
