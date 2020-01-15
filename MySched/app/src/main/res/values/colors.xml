@@ -8,4 +8,7 @@
 <!-- Login Button Colors-->
     <color name="loginButtonPressed">#ec6d64</color>
     <color name="loginButton">#fd5e53</color>
+
+<!-- Recover Password Colors -->
+    <color name="forgotPasswordBackground">#fa7e75</color>
 </resources>

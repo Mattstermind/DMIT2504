@@ -3,7 +3,8 @@
     android:shape="rectangle">
         <gradient
             android:type="linear"
-            android:startColor="@color/colorPrimary"
-            android:endColor="@color/loginButtonPressed"
+            android:startColor="#ffffff"
+            android:centerColor="#ffffff"
+            android:endColor="@color/forgotPasswordBackground"
             android:angle="90"/>
 </shape>

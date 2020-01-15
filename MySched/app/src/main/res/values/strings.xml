@@ -8,9 +8,14 @@
     <string name="forgotPassword">Forgot Password?</string>
     <string name="forgotPasswordClick">Click Here</string>
 
-    <!-- Forgot Page Strings -->
+    <!-- Recover Password Strings -->
     <string name="forgotPasswordText">Forgot Password</string>
     <string name="forgotEmployeeID">Employee ID</string>
     <string name="forgotEmployeeIDButton">Fetch Employee ID</string>
+    <string name="secuirtyQuestion">Security Questions</string>
+    <string name="secuirtyAnswer">Answer</string>
+    <string name="secuirtyButton">Submit Answers</string>
+    <string name="changePassword">Change Password</string>
+
 
 </resources>

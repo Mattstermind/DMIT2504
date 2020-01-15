@@ -16,24 +16,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        bgVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                mp.setLooping(true);
-            }
-        });
+        backgroundVideo();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        bgVideoView = (VideoView) findViewById(R.id.backgroundVideoView);
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.background);
-
-        bgVideoView.setVideoURI(uri);
-        bgVideoView.start();
+        backgroundVideo();
 
 
 
@@ -53,11 +43,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             case R.id.forgotPasswordLink:
             {
-                Intent intent = new Intent(this, ForgotPasswordStepOne.class);
+                Intent intent = new Intent(this, forgot_password_step_one.class);
                 startActivity(intent);
                 break;
             }
         }
+    }
+
+    public void backgroundVideo()
+    {
+        bgVideoView = (VideoView) findViewById(R.id.backgroundVideoView);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.background);
+
+        bgVideoView.setVideoURI(uri);
+        bgVideoView.start();
+
+        bgVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+        {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
     }
 
 
