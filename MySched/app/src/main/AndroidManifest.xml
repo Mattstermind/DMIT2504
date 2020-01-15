@@ -9,10 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".forgot_password_step_three"></activity>
-        <activity android:name=".forgot_password_step_two" />
-        <activity android:name=".forgot_password_step_one" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".TheSchedule"></activity>
+        <activity android:name=".forgot_password_step_three"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".forgot_password_step_two"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".forgot_password_step_one"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

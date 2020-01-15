@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 * Once Validation is complete we must check the users Access level to ensure
                 * we load the right Activity
                 * */
+                Intent intent = new Intent(this, TheSchedule.class);
+                startActivity(intent);
                 break;
             }
             case R.id.forgotPasswordLink:

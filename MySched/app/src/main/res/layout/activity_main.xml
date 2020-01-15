@@ -74,6 +74,7 @@
         android:layout_marginRight="64dp"
         android:background="@drawable/mainbutton"
         android:text="@string/loginButton"
+        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
