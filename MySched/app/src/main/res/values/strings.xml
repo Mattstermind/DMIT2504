@@ -15,7 +15,11 @@
     <string name="secuirtyQuestion">Security Questions</string>
     <string name="secuirtyAnswer">Answer</string>
     <string name="secuirtyButton">Submit Answers</string>
-    <string name="changePassword">Change Password</string>
 
+
+    <!-- Schedule Strings -->
+    <string name="yourShiftsButtonText">Your Shifts</string>
+    <string name="availableShiftsButtonText">Available Shifts</string>
+    <string name="employeeAttendance">Attendance</string>
 
 </resources>
