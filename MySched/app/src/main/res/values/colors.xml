@@ -11,4 +11,7 @@
 
 <!-- Recover Password Colors -->
     <color name="forgotPasswordBackground">#fa7e75</color>
+
+    <!-- Schedule Page -->
+    <color name="buttonSchedulingBg">#FAFAFA</color>
 </resources>
