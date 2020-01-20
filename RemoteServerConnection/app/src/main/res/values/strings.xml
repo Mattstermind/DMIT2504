@@ -5,4 +5,5 @@
     <string name="textButtonSend">Send Chit Chat</string>
     <string name="textButtonView">View Chit Chats</string>
     <string name="textReceiveTitle">Last Thirty</string>
+    <string name="emptyListView">No Chatter Available</string>
 </resources>

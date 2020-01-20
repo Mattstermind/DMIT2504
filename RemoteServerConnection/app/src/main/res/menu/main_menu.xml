@@ -4,6 +4,8 @@
         android:title="View TextView List"/>
 <item android:id="@+id/menuItemTextSystemList"
         android:title="View System List"/>
+    <item android:id="@+id/menuItemTextCustomListActivity"
+        android:title="View Custom List"/>
 
 </menu>
 

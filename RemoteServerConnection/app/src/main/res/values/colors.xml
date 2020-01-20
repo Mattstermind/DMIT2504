@@ -12,4 +12,5 @@
     <color name="colorTextViewBg">#ccededed</color>
     <color name="colorTextViewText">#990000</color>
 
+    <color name="colordividerList">#FFFF00</color>
 </resources>

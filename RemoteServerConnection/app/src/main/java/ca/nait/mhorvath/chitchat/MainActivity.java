@@ -78,6 +78,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 this.startActivity(intent);
                    break;
             }
+            case R.id.menuItemTextCustomListActivity:
+            {
+                Intent intent = new Intent(this, CustomListActivity.class);
+                this.startActivity(intent);
+                break;
+            }
         }
         return super.onOptionsItemSelected(item);
     }
