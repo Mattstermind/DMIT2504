@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorMainActBg"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/linear_layout_main">
 
     <TextView
         android:layout_width="wrap_content"

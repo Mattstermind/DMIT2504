@@ -4,9 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,8 +30,10 @@ import org.apache.http.message.BasicNameValuePair;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener
 {
+    SharedPreferences preferences;
+    View mainView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -45,6 +51,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button sendButton = findViewById(R.id.buttonSend);
         Button viewButton = findViewById(R.id.buttonView);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences.registerOnSharedPreferenceChangeListener(this);
+
+        mainView = findViewById(R.id.linear_layout_main);
+        String bgColor = preferences.getString("preference_main_bg_color", "#660000");
+        mainView.setBackgroundColor(Color.parseColor(bgColor));
 
         sendButton.setOnClickListener(this);
         viewButton.setOnClickListener(this);
@@ -84,6 +97,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 this.startActivity(intent);
                 break;
             }
+            case R.id.menuItemPreferences:
+            {
+                Intent intent = new Intent(this, PrefsActivity.class);
+                this.startActivity(intent);
+                break;
+            }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -119,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void postToServer(String message)
     {
+        String userName = preferences.getString("preference_user_name", "Unknown");
         try
         {
             HttpClient client = new DefaultHttpClient();
@@ -138,4 +158,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
+    {
+        String bgColor = preferences.getString("preference_main_bg_color", "#660000");
+        mainView.setBackgroundColor(Color.parseColor(bgColor));
+    }
 }

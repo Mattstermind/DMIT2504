@@ -6,4 +6,13 @@
     <string name="textButtonView">View Chit Chats</string>
     <string name="textReceiveTitle">Last Thirty</string>
     <string name="emptyListView">No Chatter Available</string>
+
+
+    <string name="pref_user_name_title">User Name</string>
+    <string name="pref_user_name_summary">Use this to change your alias</string>
+    <string name="pref_user_password_title">User Password</string>
+    <string name="pref_user_password_summary">Use this to set or change your password</string>
+    <string name="pref_user_main_bg_color_title">Main Background Color</string>
+    <string name="pref_user_main_bg_color_summary">Enter the background color (#RRGGBB) for the main screen</string>
+
 </resources>

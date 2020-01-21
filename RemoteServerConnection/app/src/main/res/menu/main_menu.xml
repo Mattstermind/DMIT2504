@@ -6,6 +6,7 @@
         android:title="View System List"/>
     <item android:id="@+id/menuItemTextCustomListActivity"
         android:title="View Custom List"/>
-
+    <item android:id="@+id/menuItemPreferences"
+        android:title="Preferences"/>
 </menu>
 
