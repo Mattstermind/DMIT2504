@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         preferences.registerOnSharedPreferenceChangeListener(this);
 
         mainView = findViewById(R.id.linear_layout_main);
-        String bgColor = preferences.getString("preference_main_bg_color", "#660000");
+        String bgColor = preferences.getString("pref_key_main_bg_color", "#660000");
         mainView.setBackgroundColor(Color.parseColor(bgColor));
 
         sendButton.setOnClickListener(this);
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
     {
-        String bgColor = preferences.getString("preference_main_bg_color", "#660000");
+        String bgColor = preferences.getString("pref_key_main_bg_color", "#660000");
         mainView.setBackgroundColor(Color.parseColor(bgColor));
     }
 }

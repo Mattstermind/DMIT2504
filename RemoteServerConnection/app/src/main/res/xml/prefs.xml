@@ -11,9 +11,13 @@
      android:title="@string/pref_user_password_title"
      android:summary="@string/pref_user_password_summary"
      />
- <EditTextPreferencet
-     android:key="preference_main_bg_color"
-     android:title="@string/pref_user_main_bg_color_title"
-     android:summary="@string/pref_user_main_bg_color_summary"
-     />
+ <ListPreference
+  android:entries="@array/color_names"
+  android:entryValues="@array/color_values"
+  android:key="@string/pref_key_main_bg_color"
+  android:title="@string/pref_user_main_bg_color_title"
+  android:summary="@string/pref_user_main_bg_color_summary">
+
+
+ </ListPreference>
 </PreferenceScreen>
