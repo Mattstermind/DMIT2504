@@ -21,6 +21,9 @@ import java.util.HashMap;
 
 public class CustomListActivity extends ListActivity
 {
+    public static final String SENDER = "sender";
+    public static final String TEXT = "text";
+    public static final String DATE = "myDate";
     ArrayList<HashMap<String, String>> chatter = new ArrayList<HashMap<String, String>>();
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -32,7 +35,7 @@ public class CustomListActivity extends ListActivity
 
     private void getFromServer()
     {
-        String[] keys = new String[]{"sender", "text", "myDate" };
+        String[] keys = new String[]{SENDER, TEXT, DATE };
         int [] ids = new int[]{R.id.row_text_view_sender, R.id.rowTextViewMessage, R.id.rowTextViewDate};
         SimpleAdapter adapter = new SimpleAdapter(this, chatter, R.layout.custom_row, keys, ids);
         populateList();
@@ -61,16 +64,16 @@ public class CustomListActivity extends ListActivity
                 HashMap<String, String> tempMap = new HashMap<String, String>();
                 //at the beginning of our loop we have already jumped to the first keyvalue pair so
                 //we only have to assign it
-                tempMap.put("sender", line);
+                tempMap.put(SENDER, line);
 
                 //now we read the next line
                 line = in.readLine();
                 //then assign it
-                tempMap.put("text", line);
+                tempMap.put(TEXT, line);
                //we again jump to the next line
                 line = in.readLine();
                 //then assign it
-                tempMap.put("myDate", line);
+                tempMap.put(DATE, line);
 
                 chatter.add(tempMap);
             }
