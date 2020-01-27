@@ -144,8 +144,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             HttpClient client = new DefaultHttpClient();
             HttpPost form = new HttpPost("http://www.youcode.ca/JitterServlet");
             List<NameValuePair> formParameters = new ArrayList<NameValuePair>();
-            formParameters.add(new BasicNameValuePair("DATA", message));
-            formParameters.add(new BasicNameValuePair("LOGIN_NAME", "MVP"));
+            formParameters.add(new BasicNameValuePair("REVIEW", message));
+            formParameters.add(new BasicNameValuePair("USERNAME", "oscar275"));
             UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(formParameters);
             //Now we are going to set the entity
             form.setEntity((formEntity));

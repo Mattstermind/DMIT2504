@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">OscarReviews</string>
+
+    <!-- Main Activity Strings -->
+    <string name="mainTitle">Oscar Review</string>
+    <string name="mainCategory">Choose a Category</string>
+    <string name="mainNominee">Enter Nominee</string>
+    <string name="mainNomineeHint">Enter Nominee</string>
+    <string name="mainReview">Review</string>
+    <string name="mainReviewHint">Enter Review</string>
+    <string name="mainPostButton">Post Review</string>
+    <string name="mainRadioBestPicture">Best Picture</string>
+    <string name="mainRadioBestActor">Best Actor</string>
+    <string name="mainRadioBestActress">Best Actress</string>
+    <string name="mainRadioBestEditing">Film Editing</string>
+    <string name="mainRadioBestEffects">Visual Effects</string>
+
+</resources>
