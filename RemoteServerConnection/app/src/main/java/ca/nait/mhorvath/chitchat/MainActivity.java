@@ -103,6 +103,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 this.startActivity(intent);
                 break;
             }
+            case R.id.menuItemSpinnerObject:
+            {
+                Intent intent = new Intent(this, ObjectSpinnerActivity.class);
+                this.startActivity(intent);
+                break;
+            }
         }
         return super.onOptionsItemSelected(item);
     }

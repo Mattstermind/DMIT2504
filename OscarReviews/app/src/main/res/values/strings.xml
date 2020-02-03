@@ -4,7 +4,7 @@
     <!-- Main Activity Strings -->
     <string name="mainTitle">Oscar Review</string>
     <string name="mainCategory">Choose a Category</string>
-    <string name="mainNominee">Enter Nominee</string>
+    <string name="mainNominee">Nominee</string>
     <string name="mainNomineeHint">Enter Nominee</string>
     <string name="mainReview">Review</string>
     <string name="mainReviewHint">Enter Review</string>

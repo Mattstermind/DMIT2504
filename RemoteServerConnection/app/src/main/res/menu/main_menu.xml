@@ -8,5 +8,7 @@
         android:title="View Custom List"/>
     <item android:id="@+id/menuItemPreferences"
         android:title="Preferences"/>
+    <item android:id="@+id/menuItemSpinnerObject"
+        android:title="Spinner"/>
 </menu>
 

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PrefsActivity"></activity>
+        <activity android:name=".ObjectSpinnerActivity"></activity>
+        <activity android:name=".PrefsActivity" />
 
         <uses-library
             android:name="org.apache.http.legacy"

@@ -18,6 +18,7 @@
     <string name="pref_key_user_name">user_name</string>
     <string name="pref_key_user_password">user_password</string>
     <string name="pref_key_user_url">user_url</string>
+    <string name="spinner">select...</string>
 
 
 </resources>
