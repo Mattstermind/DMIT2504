@@ -43,25 +43,28 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/radioButtonOptionOne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/mainRadioBestPicture" />
+                android:text="@string/mainRadioBestPicture"
+                android:onClick="onClick"/>
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/radioButtonOptionTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/mainRadioBestActor" />
+                android:text="@string/mainRadioBestActor"
+                android:onClick="onClick"/>
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/radioButtonOptionThree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/mainRadioBestActress" />
+                android:text="@string/mainRadioBestActress"
+                android:onClick="onClick"/>
         </LinearLayout>
 
         <LinearLayout
@@ -71,19 +74,20 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioButton4"
+                android:id="@+id/radioButtonOptionFour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/mainRadioBestEditing"
-                />
+                android:onClick="onClick" />
 
             <RadioButton
-                android:id="@+id/radioButton5"
+                android:id="@+id/radioButtonOptionFive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/mainRadioBestEffects" />
+                android:text="@string/mainRadioBestEffects"
+                android:onClick="onClick"/>
         </LinearLayout>
     </RadioGroup>
 

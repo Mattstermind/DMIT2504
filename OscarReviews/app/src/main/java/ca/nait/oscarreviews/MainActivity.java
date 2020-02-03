@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -20,6 +21,8 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+    RadioButton categoryOptionOne, categoryOptionTwo, categoryOptionThree,  categoryOptionFour,
+            categoryOptionFive;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,4 +79,65 @@ public class MainActivity extends AppCompatActivity {
         //Make sure all fields are properly entered
         //then post to server if successful
     }
+
+
+    public void RadioButtonSelection()
+    {
+        categoryOptionOne = (RadioButton) findViewById(R.id.radioButtonOptionOne);
+        categoryOptionTwo = (RadioButton) findViewById(R.id.radioButtonOptionTwo);
+        categoryOptionThree = (RadioButton) findViewById(R.id.radioButtonOptionThree);
+        categoryOptionFour = (RadioButton) findViewById(R.id.radioButtonOptionFour);
+        categoryOptionFive = (RadioButton) findViewById(R.id.radioButtonOptionFive);
+
+        categoryOptionOne.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                categoryOptionOne.setChecked(true);
+                categoryOptionTwo.setChecked(false);
+                categoryOptionThree.setChecked(false);
+                categoryOptionFour.setChecked(false);
+                categoryOptionFive.setChecked(false);
+            }
+        });
+
+        categoryOptionTwo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                categoryOptionOne.setChecked(false);
+                categoryOptionTwo.setChecked(true);
+                categoryOptionThree.setChecked(false);
+                categoryOptionFour.setChecked(false);
+                categoryOptionFive.setChecked(false);
+            }
+        });
+
+        categoryOptionTwo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                categoryOptionOne.setChecked(false);
+                categoryOptionTwo.setChecked(false);
+                categoryOptionThree.setChecked(true);
+                categoryOptionFour.setChecked(false);
+                categoryOptionFive.setChecked(false);
+            }
+        });
+
+        categoryOptionTwo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                categoryOptionOne.setChecked(false);
+                categoryOptionTwo.setChecked(false);
+                categoryOptionThree.setChecked(false);
+                categoryOptionFour.setChecked(true);
+                categoryOptionFive.setChecked(false);
+            }
+        });
+
+        categoryOptionTwo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                categoryOptionOne.setChecked(false);
+                categoryOptionTwo.setChecked(false);
+                categoryOptionThree.setChecked(false);
+                categoryOptionFour.setChecked(false);
+                categoryOptionFive.setChecked(true);
+            }
+        });
+    }
 }
+
