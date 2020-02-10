@@ -15,4 +15,33 @@
     <string name="mainRadioBestEditing">Film Editing</string>
     <string name="mainRadioBestEffects">Visual Effects</string>
 
+    <!-- Receive Activity Strings -->
+
+
+    <!-- Main Menu -->
+    <string name="main_menu_receive_title">View Reviews"</string>
+    <string name="main_menu_preference_title">Preferences</string>
+
+    <!-- Pref Screen -->
+    <string name="pref_key_url">url_connection</string>
+    <string name="pref_url_title">Url</string>
+    <string name="pref_url_summary">Use this to change your url connection</string>
+    <string name="pref_url_default"></string>
+
+    <string name="pref_key_login_name">user_name</string>
+    <string name="pref_login_name_title">User Name</string>
+    <string name="pref_user_login_name_summary">Use this to change your alias</string>
+    <string name="pref_login_name_default">User10136</string>
+
+    <string name="pref_key_password">user_password</string>
+    <string name="pref_login_password_title">Password</string>
+    <string name="pref_user_password_summary">Use this to change your password</string>
+    <string name="pref_password_default">Password101</string>
+
+    <string name="pref_key_background_color">user_color_choice</string>
+    <string name="pref_background_color_title">Main Background Color</string>
+    <string name="pref_background_color_summary">Enter the background color for the main screen</string>
+
+    <!-- Custom ListView -->
+    <string name="empty_list_view">No Reviews Available</string>
 </resources>

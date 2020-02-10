@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/row_text_view_date"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="12sp"
+        android:typeface="sans"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"/>
+    <TextView
+        android:id="@+id/row_text_view_reviewer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="#FFFF00"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"/>
+    <TextView
+        android:id="@+id/row_text_view_category"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="#FFFF00"
+        android:layout_below="@id/row_text_view_reviewer"/>
+    <TextView
+        android:id="@+id/row_text_view_nominee"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="#FFFF00"
+        android:layout_below="@id/row_text_view_category"/>
+    <TextView
+        android:id="@+id/row_text_view_review"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="#FFFF00"
+        android:layout_below="@id/row_text_view_nominee"/>
+</RelativeLayout>
