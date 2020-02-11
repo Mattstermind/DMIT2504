@@ -3,8 +3,10 @@ package com.example.week06;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
 {
     private static final String TAG = "MainActivity";
     SharedPreferences prefs;
+    ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -63,7 +66,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
             {
                 EditText text = (EditText) findViewById(R.id.edit_text_post_chat);
                 String chat = text.getText().toString();
-                postToServer(chat);
+                pd = ProgressDialog.show(this, "", "Posting message...");
+                new ChatWritter().execute(chat);
                 text.setText("");
                 Log.d(TAG,"posting a message menu item ");
                 break;
@@ -71,27 +75,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
             }
         }
     }
-
-    private void postToServer(String chat)
-    {
-        String userName = prefs.getString(getResources().getString(R.string.preference_key_login_name), "unknown");
-        try
-        {
-            HttpClient client = new DefaultHttpClient();
-            HttpPost post = new HttpPost("http://www.youcode.ca/JitterServlet");
-            List<NameValuePair> postParameters = new ArrayList<NameValuePair>();
-            postParameters.add(new BasicNameValuePair("DATA", chat));
-            postParameters.add(new BasicNameValuePair("LOGIN_NAME", userName));
-            UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(postParameters);
-            post.setEntity(formEntity);
-            client.execute(post);
-        }
-        catch(Exception e)
-        {
-            Toast.makeText(this, "Error: " + e, Toast.LENGTH_LONG).show();
-        }
-        Log.d(TAG,"should be a successful");
-   }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -118,6 +101,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
                 Log.d(TAG, "stopping service");
                 break;
             }
+            case R.id.menu_item_display_activity:
+            {
+                stopService(new Intent(this, DisplayActivity.class) );
+                Log.d(TAG, "stopping service");
+                break;
+            }
             case R.id.menu_item_view_preferences:
             {
                 Intent intent = new Intent(this, PrefsActivity.class);
@@ -126,5 +115,40 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
             }
         }
         return true;
+    }
+
+    private class ChatWritter extends AsyncTask<String, Void, String>
+    {
+
+        @Override
+        protected String doInBackground(String... strings)
+        {
+            String message = strings[0];
+            String userName = prefs.getString(getResources().getString(R.string.preference_key_login_name), "unknown");
+            try
+            {
+                HttpClient client = new DefaultHttpClient();
+                HttpPost post = new HttpPost("http://www.youcode.ca/JitterServlet");
+                List<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+                postParameters.add(new BasicNameValuePair("DATA", message));
+                postParameters.add(new BasicNameValuePair("LOGIN_NAME", userName));
+                UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(postParameters);
+                post.setEntity(formEntity);
+                client.execute(post);
+            }
+            catch(Exception e)
+            {
+                Log.d(TAG, "Error posting message ");
+            }
+            Log.d(TAG,"should be a successful");
+            //this is how you see your result in strings
+            //String str = strings[0];
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            pd.dismiss();
+        }
     }
 }

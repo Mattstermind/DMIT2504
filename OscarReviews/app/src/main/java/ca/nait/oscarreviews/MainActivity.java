@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String CATEGORY_PICTURE = "film";
     public static final String CATEGORY_ACTOR = "actor";
     public static final String CATEGORY_ACTRESS = "actress";
-    public static final String CATEGORY_FILMEDITING = "editing";
-    public static final String CATEGORY_VISUALEFFECTS = "effects";
+    public static final String CATEGORY_FILM_EDITING = "editing";
+    public static final String CATEGORY_VISUAL_EFFECTS = "effects";
 
     //Create static strings for our preference
     public static final String DEFAULT_URL = "http://www.youcode.ca/Lab01Servlet";
@@ -105,8 +105,8 @@ public class MainActivity extends AppCompatActivity {
         categoryChoice = (categoryGroup.getCheckedRadioButtonId() == R.id.radioBestPicture) ? CATEGORY_PICTURE :
                 (categoryGroup.getCheckedRadioButtonId() == R.id.radioButtonActor) ? CATEGORY_ACTOR
                         : (categoryGroup.getCheckedRadioButtonId() == R.id.radioButtonActress) ? CATEGORY_ACTRESS :
-                        (categoryGroup.getCheckedRadioButtonId() == R.id.radioButtonOptionFilmEditing) ? CATEGORY_FILMEDITING
-                                : CATEGORY_VISUALEFFECTS;
+                        (categoryGroup.getCheckedRadioButtonId() == R.id.radioButtonOptionFilmEditing) ? CATEGORY_FILM_EDITING
+                                : CATEGORY_VISUAL_EFFECTS;
 
         return categoryChoice;
     }
@@ -120,8 +120,8 @@ public class MainActivity extends AppCompatActivity {
         bundleChoice = (categoryGroup.getCheckedRadioButtonId() == R.id.radioBestPicture) ? CATEGORY_PICTURE :
                 (categoryGroup.getCheckedRadioButtonId() == R.id.radioButtonActor) ? CATEGORY_ACTOR
                         : (categoryGroup.getCheckedRadioButtonId() == R.id.radioButtonActress) ? CATEGORY_ACTRESS :
-                        (categoryGroup.getCheckedRadioButtonId() == R.id.radioButtonOptionFilmEditing) ? CATEGORY_FILMEDITING
-                                : CATEGORY_VISUALEFFECTS;
+                        (categoryGroup.getCheckedRadioButtonId() == R.id.radioButtonOptionFilmEditing) ? CATEGORY_FILM_EDITING
+                                : CATEGORY_VISUAL_EFFECTS;
 
         //now Bundle our selection and category title
         RadioButton titleSelected = findViewById(categoryGroup.getCheckedRadioButtonId());
