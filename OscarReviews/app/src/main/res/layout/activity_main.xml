@@ -6,7 +6,8 @@
     <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:orientation="vertical">
+       android:orientation="vertical"
+        android:id="@+id/linear_layout_main">
 
     <TextView
         android:id="@+id/textView2"
@@ -44,39 +45,35 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/mainRadioBestPicture"
-                android:onClick="onClick"/>
+                android:checked="true"/>
 
             <RadioButton
                 android:id="@+id/radioButtonActor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/mainRadioBestActor"
-                android:onClick="onClick"/>
+                android:text="@string/mainRadioBestActor" />
 
             <RadioButton
                 android:id="@+id/radioButtonActress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/mainRadioBestActress"
-                android:onClick="onClick"/>
+                android:text="@string/mainRadioBestActress" />
 
             <RadioButton
                 android:id="@+id/radioButtonOptionFilmEditing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/mainRadioBestEditing"
-                android:onClick="onClick" />
+                android:text="@string/mainRadioBestEditing" />
 
             <RadioButton
                 android:id="@+id/radioButtonVisualEffects"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/mainRadioBestEffects"
-                android:onClick="onClick"/>
+                android:text="@string/mainRadioBestEffects"/>
 
     </RadioGroup>
 

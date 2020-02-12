@@ -44,8 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(Build.VERSION.SDK_INT > 9)
         {
-            StrictMode.ThreadPolicy ourPolicy =
-                    new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.ThreadPolicy ourPolicy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(ourPolicy);
         }
 

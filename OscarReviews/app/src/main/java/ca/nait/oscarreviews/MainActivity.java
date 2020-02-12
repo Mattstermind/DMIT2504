@@ -4,10 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -26,7 +31,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener
+{
+    SharedPreferences preferences;
+    View mainView;
+
     //Create static strings for our categories
     public static final String CATEGORY_PICTURE = "film";
     public static final String CATEGORY_ACTOR = "actor";
@@ -51,30 +60,39 @@ public class MainActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(ourPolicy);
         }
 
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences.registerOnSharedPreferenceChangeListener(this);
+
+        mainView = findViewById(R.id.linear_layout_main);
+        String bgColor = preferences.getString(getResources().getString(R.string.pref_key_background_color), "#660000");
+        mainView.setBackgroundColor(Color.parseColor(bgColor));
     }
 
-    public void postToServer(String nominee, String review, String category) {
-
-
-        try {
+    public void postToServer(String nominee, String review, String category)
+    {
+        try
+        {
             HttpClient client = new DefaultHttpClient();
-            HttpPost form = new HttpPost(DEFAULT_URL);
+            HttpPost form = new HttpPost("http://www.youcode.ca/Lab01Servlet");
             List<NameValuePair> formParameters = new ArrayList<NameValuePair>();
             formParameters.add(new BasicNameValuePair("REVIEW", review));
-            formParameters.add(new BasicNameValuePair("REVIEWER", DEFAULT_USERNAME));
+            formParameters.add(new BasicNameValuePair("REVIEWER", "gerry"));
             formParameters.add(new BasicNameValuePair("NOMINEE", nominee));
             formParameters.add(new BasicNameValuePair("CATEGORY", category));
-            formParameters.add(new BasicNameValuePair("PASSWORD", DEFAULT_PASSWORD));
+            formParameters.add(new BasicNameValuePair("PASSWORD", "oscar275"));
             UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(formParameters);
             form.setEntity((formEntity));
             client.execute(form);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             Toast.makeText(this, "Error: " + e, Toast.LENGTH_LONG).show();
         }
     }
 
     public void onClickPostReview(View view) {
-
+        //Make sure all fields are properly entered
+        //then post to server if successful
         RadioGroup radioGroupCategory = findViewById(R.id.radioGroupCategory);
         EditText nomineeField = findViewById(R.id.editTextNominee);
         EditText reviewField = findViewById(R.id.editTextReview);
@@ -96,11 +114,6 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtras(radioButtonBundleSelection());
             startActivity(intent);
         }
-
-
-
-        //Make sure all fields are properly entered
-        //then post to server if successful
     }
 
     //This method is used to obtain the user selection of the radio group.
@@ -126,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
         //get a handle on our radio button
         RadioGroup categoryGroup = findViewById(R.id.radioGroupCategory);
 
+        //grab what radio our user has selected
         bundleChoice = (categoryGroup.getCheckedRadioButtonId() == R.id.radioBestPicture) ? CATEGORY_PICTURE :
                 (categoryGroup.getCheckedRadioButtonId() == R.id.radioButtonActor) ? CATEGORY_ACTOR
                         : (categoryGroup.getCheckedRadioButtonId() == R.id.radioButtonActress) ? CATEGORY_ACTRESS :
@@ -134,8 +148,11 @@ public class MainActivity extends AppCompatActivity {
 
         //now Bundle our selection and category title
         RadioButton titleSelected = findViewById(categoryGroup.getCheckedRadioButtonId());
+        //create a new bundle instance
         Bundle categoryBundle = new Bundle();
+        //bundle the category value
         categoryBundle.putString("CATEGORY", bundleChoice);
+        //bundle the category name
         categoryBundle.putString("TITLE", titleSelected.getText().toString());
 
         //return our bundle
@@ -145,7 +162,12 @@ public class MainActivity extends AppCompatActivity {
     //Menu Methods
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        //true  - means its been taken care of
+
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+
     }
 
     @Override
@@ -153,18 +175,29 @@ public class MainActivity extends AppCompatActivity {
     {
         switch(item.getItemId())
         {
+            case R.id.menuItemViewReviews:
+            {
+                Intent intent = new Intent(this, ViewReviews.class);
+                intent.putExtras(radioButtonBundleSelection());
+                startActivity(intent);
+                break;
+            }
             case R.id.menuItemPreference:
             {
                 Intent intent = new Intent(this, PrefsActivity.class);
                 this.startActivity(intent);
                 break;
             }
-
         }
         return super.onOptionsItemSelected(item);
     }
 
-
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)
+    {
+        String bgColor = preferences.getString(getResources().getString(R.string.pref_key_background_color), "#660000");
+        mainView.setBackgroundColor(Color.parseColor(bgColor));
+    }
 
 }
 

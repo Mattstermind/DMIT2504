@@ -27,7 +27,7 @@ public class ViewReviews extends ListActivity
     public static final String REVIEW = "Review";
 
     ArrayList<HashMap<String, String>> reviews = new ArrayList<HashMap<String, String>>();
-
+    String categoryChoice;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -37,7 +37,7 @@ public class ViewReviews extends ListActivity
 
         //Collect the bundle
         Bundle categoryBundle = this.getIntent().getExtras();
-        String categoryChoice = categoryBundle.getString("CATEGORY");
+        categoryChoice = categoryBundle.getString("CATEGORY");
         String categoryChoiceTitle = categoryBundle.getString("TITLE");
 
         //set title
@@ -66,7 +66,7 @@ public class ViewReviews extends ListActivity
             //now we set up a request
             HttpGet request = new HttpGet();
             //JSON parclet
-            request.setURI(new URI("http://www.youcode.ca/showReviews.jsp"));
+            request.setURI(new URI("http://www.youcode.ca/Lab01Servlet?CATEGORY=" + categoryChoice));
             //now we want to submit the request and place it somewhere
             HttpResponse response = client.execute(request);
             //Now we parse our request
