@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             postToServer(Nominee, Review, Category);
 
             Intent intent = new Intent(this, ViewReviews.class);
-            Intent.putExtras(radioButtonBundleSelection());
+            intent.putExtras(radioButtonBundleSelection());
             startActivity(intent);
         }
 

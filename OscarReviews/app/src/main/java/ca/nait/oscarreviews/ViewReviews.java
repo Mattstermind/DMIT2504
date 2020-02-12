@@ -34,10 +34,15 @@ public class ViewReviews extends ListActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_reviews);
 
+
         //Collect the bundle
         Bundle categoryBundle = this.getIntent().getExtras();
-        String categoryChoice = categoryBundle.toString("CATEGORY");
-        String categoryChoiceTitle = categoryBundle.toString("TITLE");
+        String categoryChoice = categoryBundle.getString("CATEGORY");
+        String categoryChoiceTitle = categoryBundle.getString("TITLE");
+
+        //set title
+        this.setTitle(categoryChoiceTitle);
+        // select category
 
 
         getFromServer();
