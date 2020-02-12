@@ -27,6 +27,7 @@ public class ViewReviews extends ListActivity
     public static final String REVIEW = "Review";
 
     ArrayList<HashMap<String, String>> reviews = new ArrayList<HashMap<String, String>>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -35,9 +36,11 @@ public class ViewReviews extends ListActivity
 
         //Collect the bundle
         Bundle categoryBundle = this.getIntent().getExtras();
-        //String categoryChoice = categoryBundle.toString("CATEGORY");
-        //String categoryChoiceTitle = categoryBundle.toString("TITLE");
+        String categoryChoice = categoryBundle.toString("CATEGORY");
+        String categoryChoiceTitle = categoryBundle.toString("TITLE");
 
+
+        getFromServer();
     }
 
     private void getFromServer()

@@ -86,18 +86,26 @@ public class MainActivity extends AppCompatActivity {
         } else if (reviewField.getText().toString().length() < 1) {
             Toast.makeText(this, "Please enter a Review", Toast.LENGTH_LONG).show();
         } else {
-            // String Category = getSelectedRadioButtonValue(); <--- method
+            String Category = radioButtonSelection();
             String Nominee = nomineeField.getText().toString();
             String Review = reviewField.getText().toString();
-            //postToServer(Nominee, Review, );
+            //post to server
+            postToServer(Nominee, Review, Category);
+
+            Intent intent = new Intent(this, ViewReviews.class);
+            Intent.putExtras(radioButtonBundleSelection());
+            startActivity(intent);
         }
+
+
 
         //Make sure all fields are properly entered
         //then post to server if successful
     }
 
     //This method is used to obtain the user selection of the radio group.
-    public String radioButtonSelection() {
+    public String radioButtonSelection()
+    {
         String categoryChoice = "";
         //get a handle on our radio button
         RadioGroup categoryGroup = findViewById(R.id.radioGroupCategory);
@@ -112,7 +120,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //This method is to bundle out category and ship it over to the other page
-    public Bundle radioButtonBundleSelection() {
+    public Bundle radioButtonBundleSelection()
+    {
         String bundleChoice = "";
         //get a handle on our radio button
         RadioGroup categoryGroup = findViewById(R.id.radioGroupCategory);
